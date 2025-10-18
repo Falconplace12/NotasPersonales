@@ -19,7 +19,6 @@ fun ListaNotasScreen(navController: NavController, viewModel: NotaViewModel) {
     var busqueda by remember { mutableStateOf("") }
     val notas by viewModel.notas.collectAsState()
 
-    // Filtro de notas según categoría y texto de búsqueda
     val notasFiltradas = notas.filter {
         (filtroCategoria == "Todas" || it.categoria == filtroCategoria) &&
                 it.titulo.contains(busqueda, ignoreCase = true)
@@ -28,7 +27,7 @@ fun ListaNotasScreen(navController: NavController, viewModel: NotaViewModel) {
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = { navController.navigate("crear_editar") }) {
-                Text("+")
+                Text("+", color = MaterialTheme.colorScheme.onPrimary)
             }
         }
     ) { padding ->
@@ -42,12 +41,18 @@ fun ListaNotasScreen(navController: NavController, viewModel: NotaViewModel) {
                 value = busqueda,
                 onValueChange = { busqueda = it },
                 label = { Text("Buscar por título") },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedTextColor = MaterialTheme.colorScheme.onBackground,
+                    unfocusedTextColor = MaterialTheme.colorScheme.onBackground,
+                    cursorColor = MaterialTheme.colorScheme.primary,
+                    focusedBorderColor = MaterialTheme.colorScheme.primary
+                )
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Botones de filtro de categoría (alineados uniformemente)
+            // Filtros
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -63,11 +68,11 @@ fun ListaNotasScreen(navController: NavController, viewModel: NotaViewModel) {
                             containerColor = if (isSelected)
                                 MaterialTheme.colorScheme.primary
                             else
-                                MaterialTheme.colorScheme.secondaryContainer,
+                                MaterialTheme.colorScheme.surfaceVariant,
                             contentColor = if (isSelected)
                                 MaterialTheme.colorScheme.onPrimary
                             else
-                                MaterialTheme.colorScheme.onSecondaryContainer
+                                MaterialTheme.colorScheme.onSurface
                         ),
                         modifier = Modifier
                             .weight(1f)
