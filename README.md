@@ -15,13 +15,13 @@ El objetivo del proyecto es ofrecer una interfaz simple, rápida y eficiente par
 
 ## 👥 Integrantes y Roles
 
-| Nombre | Rol |
-|---------|-----|
-| **ROBERTO CARLOS CARCAMO ESCOBAR** | Tech Lead / Arquitecto |
-| **MAURICIO EDGARDO HERRERA MEJIA** | Desarrollador Backend |
-| **EDWIN ALFREDO CORENA ALAS** | Desarrollador Frontend |
-| **STEFANY YAMILETH HERNANDEZ RODRIGUEZ** | Frontend Developer|
-| **JULIO ALEXANDER CASTILLO ALAS** | QA / Documentación | 
+| Nombre | Carnet | Rol |
+|---------|---------------|-----|
+| **ROBERTO CARLOS CARCAMO ESCOBAR** | 29-1216-2013 | Tech Lead / Arquitecto |
+| **MAURICIO EDGARDO HERRERA MEJIA** | 29-5012-2022| Desarrollador Backend |
+| **EDWIN ALFREDO CORENA ALAS** | 29-5531-2007| Desarrollador Frontend |
+| **STEFANY YAMILETH HERNANDEZ RODRIGUEZ** | 29-1081-2019 | Frontend Developer|
+| **JULIO ALEXANDER CASTILLO ALAS** | 29-3332-2007 | QA / Documentación | 
 
 
 ---
