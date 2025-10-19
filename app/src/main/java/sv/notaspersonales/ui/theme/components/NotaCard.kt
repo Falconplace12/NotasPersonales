@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import sv.notaspersonales.data.local.Nota
+import androidx.compose.foundation.isSystemInDarkTheme
 
 @Composable
 fun NotaCard(
@@ -17,19 +18,35 @@ fun NotaCard(
     onClick: () -> Unit,
     onDelete: () -> Unit
 ) {
+    // Detectar si el tema actual es oscuro
+    val isDarkTheme = !isSystemInDarkTheme()
+
+    // Si es tema oscuro, usar texto negro para fondos claros personalizados
+    val textColor = if (isDarkTheme) Color.Black else MaterialTheme.colorScheme.onSurface
+
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-            .clickable { onClick() },
+        modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
             containerColor = Color(android.graphics.Color.parseColor(nota.color))
-        )
+        ),
+        onClick = onClick
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(nota.titulo, style = MaterialTheme.typography.titleMedium)
-            Text(nota.contenido.take(50) + "...")
-            Text(nota.categoria, style = MaterialTheme.typography.labelSmall)
+            Text(
+                text = nota.titulo,
+                style = MaterialTheme.typography.titleMedium,
+                color = textColor
+            )
+            Text(
+                text = nota.contenido,
+                style = MaterialTheme.typography.bodyMedium,
+                color = textColor.copy(alpha = 0.9f)
+            )
+            Text(
+                text = nota.categoria,
+                style = MaterialTheme.typography.labelSmall,
+                color = textColor.copy(alpha = 0.7f)
+            )
         }
     }
 }
