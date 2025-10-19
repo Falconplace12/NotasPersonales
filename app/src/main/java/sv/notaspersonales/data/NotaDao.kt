@@ -11,12 +11,13 @@ interface NotaDao {
     @Query("SELECT * FROM notas WHERE categoria = :cat")
     fun obtenerPorCategoria(cat: String): Flow<List<Nota>>
 
+   /** insercion de notas*/
     @Insert
     suspend fun insertar(nota: Nota)
-
+    /** actualizando notas*/
     @Update
     suspend fun actualizar(nota: Nota)
-
+    /** eliminando notas*/
     @Delete
     suspend fun eliminar(nota: Nota)
 }
