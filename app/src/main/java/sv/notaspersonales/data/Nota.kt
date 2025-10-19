@@ -18,6 +18,9 @@ import androidx.room.PrimaryKey
  * @property color Color asociado visualmente a la nota (por ejemplo: un código hexadecimal).
  */
 @Entity(tableName = "notas")
+/**
+ * Entidad de Room que representa la tabla 'notas' en la base de datos local.
+ */
 data class Nota(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val titulo: String,
